@@ -1,0 +1,10 @@
+<div className="padel-strip__inner"
+     style={{ transform: `translateX(${-loopedOffset}px)` }}>
+  {Array.from({ length: REPEAT }).map((_, repeatIndex) =>
+    IMAGES.map((src, index) => (
+      <div key={`${repeatIndex}-${index}`} className="padel-strip__item">
+        <img src={src} alt="" />
+      </div>
+    ))
+  )}
+</div>
