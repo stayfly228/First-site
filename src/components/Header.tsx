@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const navLinks = [
@@ -17,21 +16,21 @@ export const Header: React.FC = () => {
   return (
     <header className="site-header">
       <div className="container site-header__inner">
-      <Link
-  href="/"
-  className="site-logo"
-  aria-label="Daytona Padel — на главную"
->
-  <img
-    src="/logo-daytona-padel.png"
-    alt="Daytona Padel"
-    className="site-logo__img"
-  />
-  <div>
-    <div className="site-logo__text-main">DAYTONA PADEL</div>
-    <div className="site-logo__text-sub">Kazan club</div>
-  </div>
-</Link>
+        <Link
+          href="/"
+          className="site-logo"
+          aria-label="Daytona Padel — на главную"
+        >
+          <img
+            src="/logo-daytona-padel.png"
+            alt="Daytona Padel"
+            className="site-logo__img"
+          />
+          <div>
+            <div className="site-logo__text-main">DAYTONA PADEL</div>
+            <div className="site-logo__text-sub">Kazan club</div>
+          </div>
+        </Link>
         <nav className="site-nav" aria-label="Основная навигация">
           {navLinks.map((link) => {
             const isActive =

@@ -11,11 +11,10 @@ const IMAGES = [
   "/images/padel-5.jpg"
 ];
 
-// Ширина одной фотографии в ленте (должна совпадать с CSS)
-const IMAGE_WIDTH = 360;
-// Сколько раз повторяем набор картинок, чтобы полоса была длинной
-const REPEAT = 4;
-const STRIP_LENGTH = 10000;
+// Повторений набора картинок для длинной ленты
+const REPEAT = 8;
+// Оценочная длина полосы в px (для бесконечного цикла)
+const STRIP_LENGTH = 15000;
 
 export const PadelBackgroundStrip: React.FC = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -30,12 +29,9 @@ export const PadelBackgroundStrip: React.FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Чем больше factor, тем быстрее едет лента
-  const factor = 0.3;
+  const factor = 0.25;
   const rawOffset = scrollY * factor;
-  // Используем модуль длины полосы, чтобы получить бесконечный цикл
-  const loopedOffset =
-    STRIP_LENGTH === 10000 ? 10000 : rawOffset % STRIP_LENGTH;
+  const loopedOffset = rawOffset % STRIP_LENGTH;
 
   return (
     <div className="padel-strip">
